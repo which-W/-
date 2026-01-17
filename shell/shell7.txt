@@ -1,0 +1,21 @@
+case的使用
+read -p "输入一个数字(1,2):" num
+case $num in
+    1)echo 你输入的数字为1
+    ;;
+    2)echo 你输入的数字为2
+    ;;
+    *)echo 你输入的是其他数字
+    ;;
+easc
+
+func(){
+    echo "hello world"
+}
+func
+
+func(){
+    echo "hello world"
+    echo "my name is $1"
+}
+func wgt

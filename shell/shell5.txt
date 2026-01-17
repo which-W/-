@@ -1,0 +1,25 @@
+str= "hello"
+str= "hello"
+
+if [ "$str1" = "$str2" ]; then 判断是否相同，大小写敏感 !=为不相等
+    echo True
+else
+    echo false
+fi
+
+
+str= "hello"
+str= "hello"
+-z 检查字符串长度是否为0 -n 判断字符串是否不为0
+if [ -z "$str2" ]; then 也可以直接写`$str2`来判断
+    echo True
+else
+    echo false
+fi
+
+
+num1 = 9
+num2 = 10
+if [ "$num1" = "$num2" -a -z "$num2" ] 的-a表示and
+
+if [ "$num1" = "$num2" -o -z "$num2" ] 的-o表示or

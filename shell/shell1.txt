@@ -1,0 +1,21 @@
+vim 1.sh可以创建第一个sh文件
+
+/bin/bash /bin/dash /bin/sh 都是一个dash脚本解释器
+
+echo "文本" 可以在显示屏上显示文本
+
+bash 2.sh 和 sh 2.sh 都可以正常执行文件
+
+source 2.sh 也可以执行只不过会加深颜色标注
+
+在sh脚本中
+
+name = "xiaoyu"
+echo $name 
+执行会显示name变量的内部值
+
+echo "my name is $name" 不区别单双引号
+
+set | grep name 可以查看我们的变量
+
+unset name 则清除变量

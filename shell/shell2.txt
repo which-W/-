@@ -1,0 +1,26 @@
+echo $HOME(家目录 root用户)
+/root
+
+which is (通过which可以查看ls命令脚本所在的路径)
+
+echo $PATH 显示所有的环境变量
+
+1，可以将自己的sh脚本移动到相应的环境变量目录中则可以不需要管文件所在目录而在任意目录执行
+
+例如方法一，mv 1.sh /usr/bin
+
+方法二， export PATH=/root：PATH将自己所在的root目录添加到环境变量之中（创造的临时变量）
+
+方法三，
+
+vi .bashrc
+写入
+export PATH=/root:PATH
+source usr/bin .bashrc 则可设置此环境变量且为长久变量
+
+字符串的相关操作
+str = "hello world"
+echo ${#str} 则可以获得长度
+
+获得前面三个变量
+echo ${str:0:3}

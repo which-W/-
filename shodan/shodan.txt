@@ -1,0 +1,29 @@
+可以进行漏洞扫描以及设备扫描
+
+扫描的及时性不是很强 但是快速方便啊
+
+search寻找
+
+shodan search --limit 10 country:jp
+country:国家(国家代码：https://m.taodocs.com/p-214021026.html)
+limit:数量
+
+shodan search --limit 10 --fields ip_str port country:jp
+fields:筛选
+
+shodan search --color --limit 10 --fields ip_str port country:cn city:shanghai os:windows
+color:颜色
+city:城市
+os:操作系统
+
+ip扫描
+shodan host ip
+
+shodan search has_vuln:True  --limit 10 --fields ip_str port country:jp
+has_vuln:True 漏洞检测
+
+shodan search  --limit 10 --fields ip_str port country:jp device:webcan
+device:webcan 设备(摄像头)
+device:router(路由器)
+shodan search  --limit 10 --fields ip_str port country:jp tp-link
+tp-link(web端设备)

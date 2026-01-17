@@ -1,0 +1,45 @@
+http.title 检测http的title的具体内容
+搜索http标签内容
+shodan search --limit 20 --fields ip_str,port http.title:hacked by country:jp
+shodan search --limit 20 --fields ip_str,port http.title:后台  country:cn 
+搜索一些设备的弱口令
+shodan search --limit 10 --fields ip_str,port "cisco -authorired port:23"
+usrname:admin/cisco
+password:cisco
+
+shodan search --limit 20 --fields ip_str,port net: 208.88.84.0/24
+net:网段
+
+shodan search --limit 20 --fields ip_str,port hostname:wengzu728 baidu
+hostname:域名
+
+shodan search --limit 20 --fields ip_str,port http.waf:safedog
+http.waf:检测防火墙
+
+shodan search --limit 20 --fields ip_str,port http.html:login
+http.html:检测html的内容
+
+搜索弱口令mongodb数据库
+shodan search --limit 100 --fields ip_str "MongoDB Server Information -authentication" port:27017 >mongodb.txt
+
+搜索jenkins
+shodan search --limit 20 --fields ip_str "X-Jenkins" "Set-Cookie: JSESSIONID" http.title:"Dashboard"
+
+可以使用moniter进行监控
+
+shodan search --limit 20 --fields ip_str,port http.component:jquery
+http.component 查询组件
+shodan search --limit 20 --fields ip_str,port has_screenshot:ture (后面跟上内容)
+has_screenshot:ture 可以进行截图后面加上文字则可以被识别（有OCR的服务） 
+shodan search --limit 20 --fields ip_str,port has_screenshot:ture screenshot.label:ics(工控设备)
+screenshot.label:设备搜索
+
+shodan scan submit ip 重新扫描一边进行更新
+shodan scan list 扫描的历史记录
+
+shodan stats --facets ssl.version country:jp has_ssl:true HTTP
+一个对ssl加密扫描的统计
+
+https://www.exploit-db.com/一个漏洞网站
+可以在上面复制语句然后到google上搜索
+

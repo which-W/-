@@ -1,0 +1,26 @@
+read的相关使用
+如果不是写入sh中运行则需要先 bash 进入环境
+
+read -p "请输入你的姓名" name -p 文本字符串
+echo $name 则显示用户的输入
+
+read -t 10 -p "请输入你的姓名" name -t 限制时间
+
+read -n 10 -p "请输入你的姓名" name -n 限制输入的字符个数
+
+if的相关操作
+
+-eq 相等
+-lt 小于
+-gt 大于
+-else 反转
+
+例子
+num1 = 1
+num2 = 2
+
+if [ "$num1" -eq "$num2" ] ; then
+    echo 相等
+else
+    echo 不相等
+fi

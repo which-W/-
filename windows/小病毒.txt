@@ -1,0 +1,4 @@
+第一个
+echo start cmd >1.txt
+echo %0 >> 1.txt
+ren 1.txt 1.bat

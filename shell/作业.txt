@@ -1,0 +1,73 @@
+作业一
+read -p "请输入第一个数字: " num1
+read -p "请输入运算符（+，-，*，/）: " operator
+read -p "请输入第二个数字: " num2
+# 根据运算符进行计算
+case $operator in
+'+')
+result=$((num1 + num2))
+;;
+'-')
+result=$((num1 - num2))
+;;
+'*')
+result=$((num1 * num2))
+;;
+'/')
+esac
+#表达式
+echo "表达式：$num1 $operator $num2"
+# 输出结果
+echo "结果是：$result"
+
+作业二
+read -p "输入一个n的值进行乘阶：" n
+# 初始化阶乘结果为 1
+result=1
+# 使用 while 循环计算 n 阶乘
+i=1
+while [ $i -le $n ]; 
+do
+result=$((result=1 * i))
+i=$((i + 1))
+done
+# 输出结果
+echo "n 阶乘的结果是：$result"
+
+ipv4筛选
+ip_address=$(ip addr show eth0 | grep "inet " | awk '{print $2}' | cut -d/ -f1)
+# 输出结果
+echo "eth0的IPv4地址是：$ip_address"
+
+写入自动执行
+写入1.sh 
+#!/bin/bash
+ip_address=$(ip addr show eth0 | grep "inet " | awk '{print $2}' | cut -d/ -f1)
+echo "Current IP: $ip_address" >> /desktop/logfile.log
+
+使用crontab -t
+写入则每小时都执行一次
+0 * * * * /desketop/1.sh
+
+无限重启脚本
+写入 1.sh
+while true
+do
+    reboot
+    sleep 1
+done
+
+编辑自启动服务
+sudo vim /etc/systemd/system/reboot_infinite.service
+写入
+[Unit]
+Description=Infinite Reboot Service
+[Service]
+ExecStart=/desktop/1.sh
+Restart=always
+[Install]
+WantedBy=multi-user.target
+执行
+sudo systemctl enable reboot_infinite.service
+sudo systemctl start reboot_infinite.service
+

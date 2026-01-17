@@ -1,0 +1,16 @@
+shodan count '"\x03\x00\x00\x0b\x06\xd0\x00\x00\x124\x00"'
+count:计数有多少个有漏洞的ip
+
+shodan honeyscore ip 
+honeyscore:查看是否为蜜罐
+也可以登录网站查看是否为蜜罐
+https://honeyscore.shodan.io
+
+shodan host ip --history
+history:查看历史数据
+
+vnc空密码链接(VNC(Virtual Network Console)是虚拟网络控制台的缩写。它是一款优秀的远程控制工具软件,主要针对Linux以及Unix)
+shodan search --limit 30 --fields ip_str "authentication disabled" port:5900
+搜索出来的ip可以直接用Vnc软件进行连接
+shodan download --limit 300 "authentication disabled" port:5900
+shodan parse --fields ip_str "下载的文件路径" > vnc.txt

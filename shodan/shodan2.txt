@@ -1,0 +1,17 @@
+cve-2019-0708
+
+漏洞特征查找查找
+shodan search --limit 10 --fields ip_str port '"\x03\x00\x00\x0b\x06\xd0\x00\x00\x124\x00"'(指纹查找用来绕过)
+shodan search --limit 10 --fields ip_str,port "port:3389 Remote Desktop Protocol"
+
+远程桌面弱口令账号密码
+Administrator
+Administrator
+
+msf批量检测使用(自学过)
+
+download下载
+shodan download 0708(文件名) --limit 100 '"\x03\x00\x00\x0b\x06\xd0\x00\x00\x124\x00"'
+
+parse解析(主要针对download下载的数据)
+shodan parse --fields ip_str "文件路径" > 0708.txt

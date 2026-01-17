@@ -1,0 +1,7 @@
+脚本程序语言
+python,golong,js等都具有脚本性特点，可以用来编写一个脚本类型的木马
+macro宏病毒
+bat,powershell病毒
+CAD LISP脚本病毒
+bios病毒
+AUtolt3病毒

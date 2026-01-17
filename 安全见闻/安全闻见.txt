@@ -1,0 +1,6 @@
+各类编程语言
+C,C++,python等语言
+网站渗透更倾向于python,php,java,javascript语言的学习
+.sys在window上为驱动程序
+渗透目标主要为非实时操作系统
+FTP SMTP POP3 IMAP是端口协议

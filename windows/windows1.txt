@@ -1,0 +1,131 @@
+文件系统
+win:以驱动器的盘符起始，或通过目录挂载分区
+Linux：fhs目录结构，块设备挂载在目录（一切都是文件）
+路径格式
+Linux：/开始，区分大小写
+win:\分割路径，不区分大小写
+系统配置
+linux:/etc和/proc(存储信息在目录)
+win:注册表(储存信息在注册表里)
+
+win的四种Shell接口
+1,GUI
+2,cmd
+3,wmic 以被弃用
+4,powershell 自动化脚本框架 支持.net架构
+Wsl 在Win上运行的子系统
+
+win的常用命令
+cd 
+cmd
+copy 路径\文件名 路径\文件名 ：把一个文件拷贝到另一个地方。 
+//这个是专门删除文件的，不能删除文件夹
+del 文件名
+dir 显示一个目录
+echo 显示消息
+echo "adwaaf" > 1.txt
+echo "adwaf" >> 1.txt
+type：type 1.txt 
+erase 删除一个或多个文件
+find 寻找一个或者多个文件中的字符串
+type 1.txt | find "a" /n
+查看文件并显示出含有a参数的字段并且按序号排列
+findstr 在多个文件中寻找字符串
+taskkill 列出所有任务及进程号，杀进程 可以根据进程 id 或映像名（Image）来结束进程。
+        /S system 指定要连接到的远程系统。
+        /U [domain\]user 指定应该在哪个用户上下文
+        /P [password] 为提供的用户上下文指定密码。如果忽略，提示输入。
+        /f 指定要强行终止的进程。
+        /FI filter 指定筛选进或筛选出查询的的任务。
+        /PID process id 指定要终止的进程的PID。
+        /IM image name 指定要终止的进程的映像名称。通配符 '*'可用来指定所有映像名。
+        /T Tree kill: 终止指定的进程和任何由此启动的子进程。
+        /? 显示帮助/用法。
+
+        TASKKILL /S system /F /IM notepad.exe /T
+        TASKKILL /PID 1230 /PID 1241 /PID 1253 /T
+        TASKKILL /F /IM QQ.exe
+        TASKKILL /F /IM notepad.exe /IM mspaint.exe
+        TASKKILL /F /FI "PID ge 1000" /FI "WINDOWTITLE ne untitle*"
+        TASKKILL /F /FI "USERNAME eq NT AUTHORITY\SYSTEM" /IM notepad.exe
+mkdir 删除目录
+logoff 注销
+netstat 查看网络连接状态
+         -a或--all：显示所有连线中的Socket；
+        -A<网络类型>或--<网络类型>：列出该网络类型连线中的相关地址；
+        -c或--continuous：持续列出网络状态；
+        -C或--cache：显示路由器配置的快取信息；
+        -e或--extend：显示网络其他相关信息；
+        -F或--fib：显示FIB；
+        -g或--groups：显示多重广播功能群组组员名单；
+        -h或--help：在线帮助；
+        -i或--interfaces：显示网络界面信息表单；
+        -l或--listening：显示监控中的服务器的Socket；
+        -M或--masquerade：显示伪装的网络连线；
+        -n或--numeric：直接使用ip地址，而不通过域名服务器；
+        -N或--netlink或--symbolic：显示网络硬件外围设备的符号连接名称；
+        -o或--timers：显示计时器；
+        -p或--programs：显示正在使用Socket的程序识别码和程序名称；
+        -r或--route：显示Routing Table；
+        -s或--statistice：显示网络工作信息统计表；
+        -t或--tcp：显示TCP传输协议的连线状况；
+        -u或--udp：显示UDP传输协议的连线状况；
+        -v或--verbose：显示指令执行过程；
+        -V或--version：显示版本信息；
+        -w或--raw：显示RAW传输协议的连线状况；
+        -x或--unix：此参数的效果和指定"-A unix"参数相同；
+        --ip或--inet：此参数的效果和指定"-A inet"参数相同。
+tracert
+    tracert也被称为Windows路由跟踪实用程序，在命令提示符（cmd）中使用tracert命令可以用于确定IP数据包访问目标时所选择的路径。
+move
+move 1.txt ../1.txt
+
+nslookup 域名
+nslookup -d 域名
+
+start: start cmd , start calc, start ping ww.baidu.com -t 
+
+ren 1.txt 2.txt 改名
+
+rmdir 文件夹名
+
+shutdowm /s 一分钟内关机
+         /a 计划取消
+         /r 重启
+         /g 一分钟内关机
+         /r /t -t设置事件 设置为0则为立刻执行
+
+attrib 文件名 (隐藏文件)
+
+systeminfo
+显示详细的系统信息
+
+cls 清除屏幕
+
+arp 
+arp -a 显示内网ip
+
+at 定时任务
+at 0 "shutdowm /r /t 0"
+取消命令
+at 1 /delete
+
+net 
+net stop telnet 关闭telnet
+net start telent 打开telnet
+net user 查看当前用户
+net user admin (查看admin用户权限)
+net user admin 123/add 添加用户名admin密码123的用户
+net user adminstrator 查看管理员用户权限
+提权
+net localgroup adminstrator admin /add 
+
+telnet 协议工具
+
+等命令
+查看系统隐藏文件dir/A 
+搜索文件名 dir/s flag.txt
+最近编辑的文件
+dir/tw/od
+
+set 列出所有环境变量
