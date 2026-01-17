@@ -1,0 +1,6 @@
+sudo ftp ip 进行尝试登录
+输入用户名以及密码
+binary
+ls(列出所有文件)
+prompt
+mget *.* (将文件下载到本地)

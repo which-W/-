@@ -1,0 +1,16 @@
+doas (“do as”)是一个用来以其他用户身份执行指令的程序。系统管理员可以对其进行设置，
+赋予指定用户执行特定指令的权限。其为以ISC许可证许可的自由及开放源代码软件，
+可在UNIX与类Unix操作系统中使用。
+
+允许user1在不输入密码的情况下以root的身份执行procmap：
+permit nopass user1 as root cmd /usr/sbin/procmap
+
+查看具体内容
+cat /etc/doas.conf
+按照具体内容来进行权限提升
+例如显示 permit nopass user1 as root cmd /usr/bin/less /var/log/authlog时
+使用doas来用less来读log
+doas /usr/bin/less /var/log/authlog
+但less有使用vi来编辑的，可以使用v来打开
+执行:!sh启动新的shell命令
+（因为权限因为less提高了所以可以在vi编辑器中执行sh命令来提权）

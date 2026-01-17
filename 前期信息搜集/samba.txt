@@ -1,0 +1,2 @@
+其他服务器信息
+sudo smbclient -L ip

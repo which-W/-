@@ -1,0 +1,24 @@
+目录爆破
+sudo gobuster dir -u http://125.220.120.1 -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
+sudo gobuster dir -u http://192.168.52.131:8080/ -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
+
+(如果端口服务是一个代理那么可以使用代理扫描看看有没有什么结果)
+sudo dirb http://192.138.52.131 -p http://192.138.52.131:3128(3128是代理服务端口)
+扫描出来的目录进行访问时需要将浏览器的http以及Sock都设置成靶机代理服务的ip和端口才能访问相关的目录
+代理成功后直接访问ip就可以连接成功
+
+添加条件
+sudo gobuster dir -u https://cas.wru.edu.cn/ -x txt,sql,php,tar,html -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
+简单目录爆破
+sudo dirb http://ip
+
+Dns爆破
+gobuster dns -d wengzu728.top -w /usr/share/wordlists/amass/subdomains-top1mil-20000.txt 
+
+*dirsearch目录爆破
+python3 dirsearch.py -u https://adm.pphuashu.com --exclude-status 403,401
+
+添加条件搜索有关文件目录
+python3 dirsearch.py -e php,html,js,sql,rar,zip,txt -u https://wlzx.wru.edu.cn/ -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
+
+wfuzz -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -hc 404 http：//192.168.52.131

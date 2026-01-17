@@ -1,0 +1,4 @@
+使用sudo -l
+出现在root权限使用的编辑器时 比如/usr/local/bin/ht
+使用有root权限的编辑器去编辑/etc/sudoers 给当前用户添加/bin/bash
+在当前用户使用sudo /bin/bash即可完成提权

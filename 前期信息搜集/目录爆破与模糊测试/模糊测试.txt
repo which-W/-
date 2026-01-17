@@ -1,0 +1,7 @@
+主要是针对目录爆破检测出来的php文件目录进行模糊测试，要对重复出现的chars word进行排除
+sudo wfuzz -c -w /usr/share/wfuzz/wordlist/general/common.txt http://10.10.10.72/image.php?FUZZ=RedteamNotes
+搜出之后对重复出现的进行排除
+--hh chars值
+--hw word值
+挖出对应的文件后
+sudo curl http://10.10.10.72/？.php?文件名

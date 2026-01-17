@@ -1,0 +1,15 @@
+file 文件名
+string 文件名
+binwalk 文件名 查看是否有捆绑
+exiftool 文件名 查看是否有注释
+如果是7z文件
+
+7z x backup.7z 解压缩
+如果加密可以尝试暴力破解
+使用7z2john转为hash
+7z2john backup.7z > back7z_hash
+john --format=7z --wordlist=/usr/share/wordlists/rockyou.txt back7z_hash
+
+如果获取ssh私钥文件但私钥已经被加密可以尝试暴力破解
+sshjohn id_rsa > id_rsa_hash
+john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa_hash(让其自己判断是那种ssh类型)

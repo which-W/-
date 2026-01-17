@@ -1,0 +1,2 @@
+保存http请求头到一个txt文件之中(在想注入的参数使用*标记)
+sudo sqlmap -r /home/kail/Desktop/req.txt --random-agent --dbs --technique T

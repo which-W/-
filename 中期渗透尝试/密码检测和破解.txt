@@ -1,0 +1,32 @@
+hash-identifier工具检测密码类型
+
+bace64解码
+# echo "字符串"| base64 -d 
+
+针对openssl的破解
+echo -n "字符串" | md5sum | awk -F' ' '{print $1}' 转换成md5
+echo -n "字符串" | md5sum | awk -F' ' '{print $1}' | od -A n -t x1 转换成md5并转换进制(十六进制)
+转换到一行
+echo -n "字符串" | md5sum | awk -F' ' '{print $1}' |tr -d '\n' |od -A n -t x1 | tr -d '\n'生成(1)
+echo -n '字符串' | openssl enc -d（解密）-a(64base解码) -CipherType（加密类型） -K (1)openssl破解
+openssl --help 获取所有加密类型存储到CipherType
+sudo awk '{gsub(/ /,"\n");print}' CipherType | sort | uniq > CipherTypes 
+循环寻找有关的正确的加密CipherType 
+for Cipher in $(cat CipherTypes);do echo -n '字符串' | openssl enc -d -a -$Cipher -K(1) 2>/dev/null;echo $Cipher ;done
+试完没有再试一遍没有-n
+for Cipher in $(cat CipherTypes);do echo '字符串' | openssl enc -d -a -$Cipher -K(1);done
+
+john破解工具（可以直接使用不带参数不行再带参数)
+
+sudo john 文件 --wordlist=/usr/share/wordlists/rockyou.txt破解字典目录
+
+针对MD5的破解
+sudo john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt
+# sudo hashcat -m 0(md5) -a 密码 /usr/share/wordlists/rockyou.txt(字典)
+
+在服务器中寻找相关备份密码(例如enc)
+find / -name '*pass*' 2>/dev/null | sort | less
+find / -name '*backup*' 2>/dev/null | sort | less
+
+使用hydra对网页post请求破解
+sudo hydra ip http-form-post "/破解目录:key=^PASS^:invaild key " -l 用户名 -p usr/share/wordlist/rockyou.txt

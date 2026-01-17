@@ -1,0 +1,7 @@
+使用这个命令找到类似（cube.sh里面显示的是使用ssh连接时出现的图片）
+find / -group users -type f 2>/dev/null
+使用dpkg -l | grep python 查看是否有python环境
+如果有可以使用python的反弹shell(在网上搜一下)
+往文件中添加对应的反弹shell
+建立nc监听
+重新进行ssh连接即可提权到root

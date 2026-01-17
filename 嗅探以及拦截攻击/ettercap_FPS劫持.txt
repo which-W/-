@@ -1,0 +1,2 @@
+sudo ettercap -G 打开FPS嗅探
+sudo ettercap -Tq

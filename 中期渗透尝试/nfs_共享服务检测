@@ -1,0 +1,8 @@
+检测是否有共享文件夹，共享服务
+showmount -e ip 
+例如显示（/home/user/storage）
+如果有进行映射下载
+mkdir 28
+sudo mount -t nfs ip:/home/user/storage 28
+cd 28
+cp 文件 .. 拷贝到上一级目录进行查看

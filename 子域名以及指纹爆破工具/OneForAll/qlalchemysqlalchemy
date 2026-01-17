@@ -1,0 +1,78 @@
+[1mNAME[0m
+    oneforall.py - OneForAll help summary page
+
+[1mSYNOPSIS[0m
+    oneforall.py [4mCOMMAND[0m | <flags>
+
+[1mDESCRIPTION[0m
+    OneForAll is a powerful subdomain integration tool
+
+    Example:
+        python3 oneforall.py version
+        python3 oneforall.py check
+        python3 oneforall.py --target example.com run
+        python3 oneforall.py --targets ./domains.txt run
+        python3 oneforall.py --target example.com --alive False run
+        python3 oneforall.py --target example.com --brute False run
+        python3 oneforall.py --target example.com --port medium run
+        python3 oneforall.py --target example.com --fmt csv run
+        python3 oneforall.py --target example.com --dns False run
+        python3 oneforall.py --target example.com --req False run
+        python3 oneforall.py --target example.com --takeover False run
+        python3 oneforall.py --target example.com --show True run
+
+    Note:
+        --port   small/medium/large  See details in ./config/setting.py(default small)
+        --fmt    csv/json (result format)
+        --path   Result path (default None, automatically generated)
+
+[1mFLAGS[0m
+    --target=[4mTARGET[0m
+        Type: Optional[]
+        Default: None
+        One domain (target or targets must be provided)
+    --targets=[4mTARGETS[0m
+        Type: Optional[]
+        Default: None
+        File path of one domain per line
+    -b, --brute=[4mBRUTE[0m
+        Type: Optional[]
+        Default: None
+        Use brute module (default True)
+    -d, --dns=[4mDNS[0m
+        Type: Optional[]
+        Default: None
+        Use DNS resolution (default True)
+    -r, --req=[4mREQ[0m
+        Type: Optional[]
+        Default: None
+        HTTP request subdomains (default True)
+    --port=[4mPORT[0m
+        Type: Optional[]
+        Default: None
+        The port range to request (default small port is 80,443)
+    -a, --alive=[4mALIVE[0m
+        Type: Optional[]
+        Default: None
+        Only export alive subdomains (default False)
+    -f, --fmt=[4mFMT[0m
+        Type: Optional[]
+        Default: None
+        Result format (default csv)
+    --path=[4mPATH[0m
+        Type: Optional[]
+        Default: None
+        Result path (default None, automatically generated)
+    --takeover=[4mTAKEOVER[0m
+        Type: Optional[]
+        Default: None
+        Scan subdomain takeover (default False)
+
+[1mCOMMANDS[0m
+    [1m[4mCOMMAND[0m[0m is one of the following:
+
+     check
+       Check if there is a new version and exit
+
+     version
+       Print version information and exit

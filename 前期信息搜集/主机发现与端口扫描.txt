@@ -1,0 +1,47 @@
+
+随机扫取ip
+nmap -v -iR 10000 -Pn -p 80
+主机扫描(发现主机)
+sudo nmap -sn ip段
+for i in {129..132};do ping -c 1 -W 172.16.200.$i | grep from;done
+端口扫描
+sudo nmap --min-rate 10000 -p- ip -oA nmapscan/ports（默认使用的是-sS 但使用-sT检测效果更好)
+nc的
+nc.traditional -vv -z ip 1-65535 2>&1 | grep -v refused
+伪设备的
+for i in {1..65535};do (echo < /dev/tcp/172.16.200.131/$i) &>/dev/null && printf "\n[+]The open port is:%d\n" "$i" || printf "." | grep -v refused
+
+查看端口具体服务(使用的是tcp,扫描较重)
+sudo nmap -sT -sV -sC -O -p80,443,3389,3306 ip -oA nmapscan/details
+查看端口的具体服务（使用udp扫描)
+sudo nmap -sU --top-ports 20 ip -oA nmapscan/udp
+漏洞脚本扫描
+sudo nmap --script=vuln -p22,80 ip -oA nmapscan/vuln
+
+获取ipv4下的ipv6地址
+cd /home/kali/
+sudo python3 ./IOXIDResolver.py -t ipv4
+扫描ipv6的端口
+sudo nmap --6 --min-rate 10000 -p- ipv6 -oA nmapsacn/ports
+
+Nmap探测WAF有两种脚本。
+一种是http-waf-detect。
+命令：nmap -p80,443  --script=http-waf-detect  ip
+一种是http-waf-fingerprint。
+命令：nmap -p80,443  --script=http-waf-fingerprint  ip
+WAFW00F探测WAF
+命令：wafw00f -a  域名
+
+显示开发端口
+grep open nmapscan/ports.namp
+
+导出端口号
+grep open nmapscan/ports.namp | awk -F '/' '{print $1}'
+
+合并到一行并用逗号分隔
+grep open nmapscan/ports.namp | awk -F '/' '{print $1}' | paste -sd ',' 
+
+赋值到port
+port = $(grep open nmapscan/ports.namp | awk -F '/' '{print $1}' | paste -sd ',' )
+
+

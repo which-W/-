@@ -1,0 +1,2 @@
+mysql -h ip -p 密码（可空检测)
+mysql -h ip -uroot -p  密码（可空检测)
